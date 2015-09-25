@@ -43,7 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // Main message loop:
+    // Bucle principal de mensajes (Main message loop):
 	//
     while (GetMessage(&msg, nullptr, 0, 0))
     {
@@ -122,6 +122,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_PAINT    - Pintar la ventana principal
 //  WM_DESTROY  - Enviar un mensaje salir y volver
 //
+//  COMENTARIOS
+//		 Todas las aplicaciones basadas en Win32 deben tener una función de procedimiento de ventana.
+//		 Esta función normalmente se denomina WndProc.
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
