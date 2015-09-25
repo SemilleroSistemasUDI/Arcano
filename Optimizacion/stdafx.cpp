@@ -1,8 +1,9 @@
-// stdafx.cpp : source file that includes just the standard includes
-// Optimizacion.pch will be the pre-compiled header
-// stdafx.obj will contain the pre-compiled type information
+// stdafx.cpp : e utiliza para generar un archivo de encabezado precompilado denominado Win32.pch 
+// y un archivo de tipos precompilado denominado Stdafx.obj.
+// Optimizacion.pch sera un cabecera precompilada
+// stdafx.obj contendrá la información de tipo pre-compilado
 
 #include "stdafx.h"
 
-// TODO: reference any additional headers you need in STDAFX.H
-// and not in this file
+// TODO: Referencias adicionales para los encabezados en STDAFX.H
+// y no en este archivo
