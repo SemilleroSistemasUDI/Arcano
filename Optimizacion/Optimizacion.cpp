@@ -152,6 +152,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Agregar cualquier codigo de dibujo que use hdc aquí...
+
+			// Manejador de mensajes para boton de cargar archivo (Load File button)
+			HWND hwndButton = CreateWindow(
+				L"BUTTON",  // Clase predefinida; Unicode assumed 
+				L"Load file",      // Texto del Botoon 
+				WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Estilos 
+				10,         // Posicion en X 
+				10,         // Posicion en Y 
+				100,        // Ancho del boton
+				32,        // Alto del Boton
+				hWnd,		// Ventana Padre
+				NULL,       // Sin menu
+				(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),
+				NULL);      // No es necesario el puntero
+			// 
+
+
             EndPaint(hWnd, &ps);
         }
         break;
