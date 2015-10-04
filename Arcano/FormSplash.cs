@@ -19,12 +19,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Syncfusion.Windows.Forms.Tools;
-using Syncfusion.Windows.Forms;
+using System.Windows.Forms;
 
 namespace Arcano
 {
-    public partial class FormSplash : MetroForm
+    public partial class FormSplash : Form
     {
         public FormSplash()
         {
