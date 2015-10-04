@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
 
 namespace Arcano
 {
-    public partial class FormInicio : Form
+    public partial class FormInicio : MetroForm
     {
         public FormInicio()
         {
