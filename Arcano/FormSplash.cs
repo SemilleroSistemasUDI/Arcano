@@ -13,13 +13,10 @@
 #endregion
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Configuration;
+
 
 namespace Arcano
 {
@@ -28,6 +25,48 @@ namespace Arcano
         public FormSplash()
         {
             InitializeComponent();
+            // Evitar que el label sobreponga backColor al PictureBox
+            this.labelVerificar.Parent = pictureBoxSplash;
+            // Cargo la version actual del empaquetado
+            if (ConfigurationManager.AppSettings[""] != null)
+            {
+                this.labelVersion.Visible = false;
+            }
+            else
+            {
+                this.labelVersion.Text = ConfigurationManager.AppSettings["VersionActual"];
+            }
+        }
+        
+        // Evito que cierren el splash mientras verifica los campos de verificacion - App.config
+        private void FormSplash_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void FormSplash_Shown(object sender, EventArgs e)
+        {
+            // Varifico la existencia de los campos requeridos por Arcano
+            string mensaje = string.Empty;
+            Dictionary<string, string>.KeyCollection ListaCampos = ArcanoConfig.GetLlavesRequeridasKeys();
+            foreach (var campo in ListaCampos)
+            {
+                if (ConfigurationManager.AppSettings[campo] == null)
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+                    config.AppSettings.Settings.Add(campo.ToString(), ArcanoConfig.GetLlavesRequeridas(campo).ToString());
+                    config.Save(ConfigurationSaveMode.Minimal);
+                }
+                // Muestro el campo que esta revisando en el labelVerificar
+                mensaje = "Arcano " + campo + " verificado...";
+                this.labelVerificar.Text = mensaje;
+                Application.DoEvents();
+                Thread.Sleep(500);
+            }
+            this.labelVerificar.Text = "Cargando...";
+            Application.DoEvents();
+            Thread.Sleep(200);
+            this.Dispose();
         }
     }
 }
