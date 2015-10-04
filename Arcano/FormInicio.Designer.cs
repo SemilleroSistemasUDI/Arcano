@@ -44,7 +44,7 @@
             this.CaptionButtonColor = System.Drawing.Color.White;
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
             this.CaptionFont = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.White;
+            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             captionImage1.BackColor = System.Drawing.Color.Transparent;
             captionImage1.ForeColor = System.Drawing.Color.Transparent;
             captionImage1.Image = global::Arcano.Properties.Resources.arcano48px;
@@ -69,6 +69,8 @@
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.Name = "FormInicio";
             this.ShowIcon = false;
+            this.Tag = "";
+            this.Shown += new System.EventHandler(this.FormInicio_Shown);
             this.ResumeLayout(false);
 
         }

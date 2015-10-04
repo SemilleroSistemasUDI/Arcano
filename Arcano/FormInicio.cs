@@ -12,13 +12,7 @@
 // LICENSE file in the root directory of this source tree. 
 #endregion
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Syncfusion.Windows.Forms;
 
 namespace Arcano
@@ -28,6 +22,13 @@ namespace Arcano
         public FormInicio()
         {
             InitializeComponent();
+            Thread.Sleep(500 * ArcanoConfig.GetCuentaDeLlavesRequeridas());
+            this.TopMost = true;
+        }
+
+        private void FormInicio_Shown(object sender, EventArgs e)
+        {
+            this.TopMost = false;
         }
     }
 }
