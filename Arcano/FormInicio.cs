@@ -14,6 +14,7 @@
 using System;
 using System.Threading;
 using Syncfusion.Windows.Forms;
+using System.Configuration;
 
 namespace Arcano
 {
@@ -29,6 +30,31 @@ namespace Arcano
         private void FormInicio_Shown(object sender, EventArgs e)
         {
             this.TopMost = false;
+            textBox1.Text = ConfigurationManager.AppSettings["ArcanoCore"];
+        }
+
+        private void FormInicio_Load(object sender, EventArgs e)
+        {
+            
+            //bool cmd = Boolean.Parse(ConfigurationManager.AppSettings["CMD"]);
+            //bool core = Boolean.Parse(ConfigurationManager.AppSettings["ArcanoCore"]);
+            //bool archivo = Boolean.Parse(ConfigurationManager.AppSettings["RutaCSV"]);
+
+            //if (!(cmd))
+            //{
+            //    panelNoCMD.Visible = true;
+            //}
+
+            //if (!(core))
+            //{
+            //    panelNoCore.Visible = true;
+            //}
+
+            //if (!(archivo))
+            //{
+            //    panelNoArchivo.Visible = true;
+            //}
+
         }
     }
 }
